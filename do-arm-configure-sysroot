@@ -1,0 +1,9 @@
+#!/bin/sh
+ARCH=arm-none-eabi
+DIR=`dirname $0`
+meson "$DIR" \
+	-Dincludedir=picolibc/$ARCH/include \
+	-Dlibdir=picolibc/$ARCH/lib \
+	-Dprefix="$(readlink -f $(${ARCH}-gcc -print-sysroot))" \
+	--cross-file "$DIR"/cross-$ARCH.txt \
+	"$@"

@@ -41,6 +41,9 @@ option('multilib', type: 'boolean', value: true,
 option('picolib', type: 'boolean', value: true,
        description: 'Include pico lib bits')
 
+option('sysroot-install', type: 'boolean', value: true,
+       description: 'Install in gcc sysroot')
+
 option('hw-fp', type: 'boolean', value: false,
 	description: 'Turn on hardware floating point math')
 

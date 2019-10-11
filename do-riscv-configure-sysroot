@@ -1,0 +1,9 @@
+#!/bin/sh
+ARCH=riscv64-unknown-elf
+DIR=`dirname $0`
+meson "$DIR" \
+	-Dincludedir=picolibc/$ARCH/include \
+	-Dlibdir=picolibc/$ARCH/lib \
+	-Dprefix="$(readlink -f $(${ARCH}-gcc -print-sysroot))" \
+	--cross-file "$DIR"/cross-$ARCH.txt \
+	"$@"
